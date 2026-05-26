@@ -866,16 +866,6 @@ function renderEBacktesting(summary) {
   const green = counts.green ?? 0;
   const yellow = counts.yellow ?? 0;
   const red = counts.red ?? 0;
-  const total = green + yellow + red;
-  const redShare = total ? red / total : 0;
-  const yellowShare = total ? yellow / total : 0;
-  const marker = Math.min(96, Math.max(4, 8 + yellowShare * 64 + redShare * 88));
-
-  if (elements.ebacktestMeter) {
-    elements.ebacktestMeter.style.setProperty("--alert-marker", `${marker.toFixed(1)}%`);
-    elements.ebacktestMeter.classList.toggle("is-red", redShare >= 0.05);
-    elements.ebacktestMeter.classList.toggle("is-yellow", redShare < 0.05 && yellowShare > 0.1);
-  }
 
   elements.ebacktestStats.innerHTML = [
     ["Green", green],

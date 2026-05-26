@@ -2127,29 +2127,9 @@ tbody tr.is-selected {
 }
 
 .alert-meter {
-  position: relative;
   height: 18px;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--accent) 0 46%, #f79009 46% 72%, var(--risk) 72% 100%);
-  overflow: hidden;
-}
-
-.alert-meter span {
-  position: absolute;
-  top: -5px;
-  left: var(--alert-marker, 38%);
-  width: 4px;
-  height: 28px;
-  border-radius: 999px;
-  background: #17202a;
-}
-
-.alert-meter.is-yellow span {
-  background: #92400e;
-}
-
-.alert-meter.is-red span {
-  background: #7f1d1d;
 }
 
 .traffic-row {
