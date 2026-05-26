@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ReSGA Tail Risk Forecasts</title>
-    <link rel="stylesheet" href="./static/styles.css?v=20260525-7" />
+    <link rel="stylesheet" href="./static/styles.css?v=20260526-5" />
   </head>
   <body>
     <main class="app-shell">
@@ -185,16 +185,8 @@
         </div>
         <div class="analogue-overview" id="analoguePreview">
           <div class="query-panel">
-            <span class="dataset-tag">Latest analogue snapshot</span>
-            <h3>Annual analogue bands</h3>
-            <p>
-              Current stock conditions are compared with similar historical states from the same calendar month
-              one to four years earlier, then summarized across similar stocks.
-            </p>
-            <p class="quiet-note">
-              The bands reflect the current model design: each point is an annual historical state, not a monthly
-              rolling scan.
-            </p>
+            <h3>Find Similar States</h3>
+            <p>Compare the current forecast state with high-similarity historical states.</p>
             <label class="search-box">
               <span>Find a stock</span>
               <input id="analogueSearchInput" type="search" placeholder="Ticker or company" autocomplete="off" />
@@ -294,6 +286,6 @@
         </div>
       </section>
     </main>
-    <script src="./static/app.js?v=20260526-4"></script>
+    <script src="./static/app.js?v=20260526-5"></script>
   </body>
 </html>

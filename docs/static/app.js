@@ -583,6 +583,8 @@ function renderHomeAnaloguePreview(rows, stockIndex, targetMonth, meta) {
   const minWeight = Math.min(...weights);
   const maxWeight = Math.max(...weights);
   const span = maxWeight - minWeight || 1;
+  const topMatch = rows[0];
+  const topMeta = topMatch ? stockIndex.get(String(topMatch.retrieved_id)) || {} : {};
   const bands = [1, 2, 3, 4].map((year) => ({
     year,
     rows: rows.filter((row) => Math.round(analogueYearsBack(row.retrieved_eom, targetMonth)) === year),
@@ -591,18 +593,22 @@ function renderHomeAnaloguePreview(rows, stockIndex, targetMonth, meta) {
   elements.analoguePreview.innerHTML = `
     <div class="home-analogue-heading">
       <div>
-        <span>Selected stock</span>
+        <span>Selected</span>
         <strong>${meta.ticker || "Stock"}${meta.name ? ` · ${meta.name}` : ""}</strong>
       </div>
       <div>
-        <span>Forecast month</span>
+        <span>Date</span>
         <strong>${targetMonth ? targetMonth.slice(0, 7) : "-"}</strong>
+      </div>
+      <div>
+        <span>Top match</span>
+        <strong>${topMeta.ticker || topMatch?.retrieved_id || "-"}</strong>
       </div>
     </div>
     <div class="home-analogue-bands">
       ${bands.map((band) => `
         <div class="home-analogue-band">
-          <span>${formatYearsBack(band.year)} back</span>
+          <span><b>${formatYearsBack(band.year)}</b> back</span>
           <div>
             ${band.rows.length ? band.rows.map((row) => {
               const retrievedMeta = stockIndex.get(String(row.retrieved_id)) || {};
@@ -614,7 +620,8 @@ function renderHomeAnaloguePreview(rows, stockIndex, targetMonth, meta) {
                   style="--pill-alpha:${(0.18 + strength * 0.52).toFixed(3)}"
                   title="${retrievedMeta.name || ""}"
                 >
-                  ${retrievedMeta.ticker || row.retrieved_id}
+                  <span>${retrievedMeta.ticker || row.retrieved_id}</span>
+                  <small>#${row.rank}</small>
                 </a>
               `;
             }).join("") : '<em>No top match</em>'}
@@ -622,6 +629,7 @@ function renderHomeAnaloguePreview(rows, stockIndex, targetMonth, meta) {
         </div>
       `).join("")}
     </div>
+    <div class="home-analogue-summary-title">Closest matches</div>
     <div class="home-analogue-summary">
       ${rows.slice(0, 5).map((row) => {
         const retrievedMeta = stockIndex.get(String(row.retrieved_id)) || {};
