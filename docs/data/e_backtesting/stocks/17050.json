@@ -1,0 +1,1 @@
+{"id":17050,"ticker":"CCT","name":"Corporate Capital Trust Inc","industry":"Trading","alpha":0.05,"method":"GREE","gamma":0.5,"history":"expanding","n_obs":2,"latest_evaluated":"2018-12-31","final_m":1.0,"max_m":1.0,"alert":"green","hit_2":null,"hit_5":null,"hit_10":null,"hit_20":null,"path":[["2018-11-30",0.0,0.0,1.0],["2018-12-31",4.1345525992446515,0.0,1.0]]}

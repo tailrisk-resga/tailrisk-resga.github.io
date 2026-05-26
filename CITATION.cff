@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Expected Shortfall Prediction"
+message: "If you use this code, please cite the accompanying paper."
+type: software
+authors:
+  - family-names: "Expected Shortfall Prediction Authors"
+version: "0.1.0"
+date-released: "2026-04-30"
+license: MIT

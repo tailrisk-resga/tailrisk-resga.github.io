@@ -1,0 +1,6 @@
+evaluation:
+  alpha: 0.05
+  prediction_root: outputs/predictions
+  metrics_dir: outputs/metrics
+  tables_dir: outputs/tables
+  figures_dir: outputs/figures

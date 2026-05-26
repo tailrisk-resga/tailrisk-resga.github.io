@@ -1,0 +1,20 @@
+[
+  {
+    "model": "ReSGA",
+    "validation": "Best",
+    "test": "Pending",
+    "status": "Reference"
+  },
+  {
+    "model": "SGA",
+    "validation": "Baseline",
+    "test": "Pending",
+    "status": "Internal"
+  },
+  {
+    "model": "GARCH / GAS",
+    "validation": "No validation",
+    "test": "Pending",
+    "status": "Econometric"
+  }
+]

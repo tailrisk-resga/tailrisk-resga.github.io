@@ -1,0 +1,9 @@
+[
+  {
+    "query": "AAPL",
+    "as_of": "2026-04-30",
+    "nearest_state": "Prototype analogue",
+    "outcome_window": "Next month / quarter",
+    "status": "planned"
+  }
+]

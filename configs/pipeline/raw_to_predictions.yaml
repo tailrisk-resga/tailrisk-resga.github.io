@@ -1,0 +1,137 @@
+project:
+  data_dir: data
+  output_dir: outputs
+  prediction_root: outputs/predictions
+
+countries:
+  - USA
+
+seeds:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+
+runtime:
+  device: auto
+  gpu_id: 0
+  deterministic: false
+
+data:
+  steps:
+    - clean
+    - pointwise
+    - temporal
+    - cross_sectional
+    - resga
+  raw_subdir: raw/developed
+  processed_subdir: processed
+  sample_subdir: samples
+  sequence_length: 12
+  n_jobs: -1
+  sample_start:
+  sample_end:
+  resga_start:
+
+training:
+  epochs: 10000
+  patience: 5
+  batch_size: 25600
+  num_workers: 8
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  lambda_l1: 0.0
+  train_frac: 1.0
+  alpha: 0.05
+  clip_value: 10.0
+  feature_dim: 153
+  hidden_dim: 32
+  num_layers: 3
+  sequence_length: 12
+  dropout: 0.1
+  K: 10
+  beta: 0.5
+  d_model: 256
+  n_heads: 8
+  e_layers: 2
+  d_layers: 1
+  d_ff: 1024
+  factor: 5
+  embed: fixed
+  freq: b
+  activation: gelu
+  output_attention: false
+  distil: false
+  c_out: 2
+  start_time: "1926-01-01"
+  valid_time: "1996-01-01"
+  test_time: "2014-01-01"
+  end_time: "2015-01-01"
+  rolling_steps: 10
+
+models:
+  - name: Linear
+    params:
+      batch_size: 51200
+      lambda_l1: 0.001
+  - name: NN
+    params:
+      batch_size: 51200
+      hidden_dim: 64
+  - name: LANN
+    params:
+      batch_size: 51200
+      hidden_dim: 64
+      feature_dim: 1836
+  - name: DLinear
+    params:
+      batch_size: 12800
+      hidden_dim: 16
+  - name: LSTM
+    params:
+      batch_size: 12800
+      num_layers: 1
+      hidden_dim: 4
+  - name: GRU
+    params:
+      batch_size: 12800
+      num_layers: 1
+      hidden_dim: 32
+  - name: Informer
+    params:
+      batch_size: 12800
+      d_model: 8
+      n_heads: 2
+      e_layers: 1
+      d_layers: 1
+      d_ff: 16
+      factor: 2
+  - name: EInformer
+    params:
+      batch_size: 12800
+      d_model: 16
+      n_heads: 2
+      e_layers: 1
+      d_ff: 16
+      factor: 2
+  - name: DInformer
+    params:
+      batch_size: 12800
+      d_model: 16
+      n_heads: 2
+      d_layers: 1
+      d_ff: 16
+      factor: 2
+  - name: SGA
+    params:
+      batch_size: 1
+      num_layers: 1
+      hidden_dim: 16
+      K: 10
+  - name: ReSGA
+    params:
+      batch_size: 1
+      num_layers: 1
+      hidden_dim: 16
+      K: 10

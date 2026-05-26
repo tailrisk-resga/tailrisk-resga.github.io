@@ -1,0 +1,21 @@
+name: es_prediction
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.9
+  - numpy
+  - pandas
+  - scipy
+  - statsmodels
+  - pytorch
+  - tqdm
+  - joblib
+  - matplotlib
+  - seaborn
+  - python-dateutil
+  - pyyaml
+  - pip
+  - pip:
+      - einops

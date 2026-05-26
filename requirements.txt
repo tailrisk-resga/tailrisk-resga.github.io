@@ -1,0 +1,17 @@
+numpy
+pandas
+scipy
+statsmodels
+torch
+tqdm
+joblib
+matplotlib
+seaborn
+python-dateutil
+einops
+PyYAML
+
+# Optional dependencies:
+# wandb      # experiment logging
+# rpy2       # GAS baseline support
+# numba      # selected evaluation/backtesting routines

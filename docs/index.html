@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ReSGA Tail Risk Forecasts</title>
+    <link rel="stylesheet" href="./static/styles.css?v=20260525-7" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="site-header">
+        <div class="brand-block">
+          <h1>ReSGA Tail Risk Forecasts</h1>
+          <p class="lede">
+            This website is based on the paper <strong>“ReSGA: A Large Tail Risk Model for Learning Value-at-Risk and Expected Shortfall.”</strong>
+            It provides monthly stock-level Value-at-Risk and Expected Shortfall forecasts for U.S. equities,
+            together with realized returns, historical analogue states, latent risk networks, and reliability
+            monitoring tools for interpreting current tail-risk conditions.
+          </p>
+        </div>
+      </header>
+
+      <nav class="module-nav" aria-label="Portal sections">
+        <a href="#download">Data Download</a>
+        <a href="#explorer">Tail Risk Explorer</a>
+        <a href="#drivers">Risk Drivers</a>
+        <a href="#analogues">Historical Analogues</a>
+        <a href="#networks">Risk Networks</a>
+        <a href="#backtesting">Backtesting</a>
+        <a href="#docs">Documentation</a>
+      </nav>
+
+      <section class="section-block" id="download">
+        <div class="section-heading">
+          <h2>Research Outputs</h2>
+        </div>
+        <div class="download-grid">
+          <article class="dataset-card">
+            <h3>VaR/ES Forecasts</h3>
+            <p>Monthly stock-level tail risk forecasts with ticker, company name, VaR, and ES.</p>
+            <button type="button" id="downloadButton" class="button-link">Download Current View</button>
+          </article>
+          <article class="dataset-card muted-card">
+            <h3>Risk Drivers</h3>
+            <p>Feature-group importance showing which characteristic families move forecast loss the most.</p>
+            <a class="button-link" href="#drivers">Explore Drivers</a>
+          </article>
+          <article class="dataset-card muted-card">
+            <h3>Historical Analogues</h3>
+            <p>Similar historical states with their subsequent tail-risk outcomes.</p>
+            <a class="button-link" href="#analogues">Explore Analogues</a>
+          </article>
+          <article class="dataset-card muted-card">
+            <h3>Latent Risk Network</h3>
+            <p>Explore latent risk neighborhoods, similarity links, and stock-level connected risk profiles.</p>
+            <a class="button-link" href="#networks">Explore Networks</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block primary-explorer" id="explorer">
+        <div class="section-heading">
+          <h2>Forecast Browser</h2>
+        </div>
+
+        <section class="overview-band forecast-overview" aria-label="Current forecast coverage">
+          <div>
+            <span class="metric-label">Latest date</span>
+            <strong id="asOfDate">-</strong>
+          </div>
+          <div>
+            <span class="metric-label">Stocks covered</span>
+            <strong id="stockCount">-</strong>
+          </div>
+          <div>
+            <span class="metric-label">Average VaR (%)</span>
+            <strong id="averageVar">-</strong>
+          </div>
+          <div>
+            <span class="metric-label">Average ES (%)</span>
+            <strong id="averageEs">-</strong>
+          </div>
+        </section>
+
+        <div class="explorer-layout">
+          <section class="forecast-panel" aria-label="Stock-level forecasts">
+            <div class="toolbar">
+              <label class="search-box">
+                <span>Search</span>
+                <input id="searchInput" type="search" placeholder="Ticker, company, or industry" autocomplete="off" />
+              </label>
+              <label class="select-box">
+                <span>Year</span>
+                <select id="yearSelect">
+                  <option>Loading</option>
+                </select>
+              </label>
+              <label class="select-box">
+                <span>Month</span>
+                <select id="monthSelect">
+                  <option>Loading</option>
+                </select>
+              </label>
+              <button id="refreshButton" type="button">Refresh</button>
+            </div>
+            <div class="table-panel">
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th><button class="sort-header" type="button" data-sort-field="ticker">Ticker <span aria-hidden="true"></span></button></th>
+                      <th><button class="sort-header" type="button" data-sort-field="name">Company <span aria-hidden="true"></span></button></th>
+                      <th><button class="sort-header" type="button" data-sort-field="industry">Industry <span aria-hidden="true"></span></button></th>
+                      <th><button class="sort-header" type="button" data-sort-field="y">Excess Return (%) <span aria-hidden="true"></span></button></th>
+                      <th><button class="sort-header" type="button" data-sort-field="v">VaR (%) <span aria-hidden="true"></span></button></th>
+                      <th><button class="sort-header" type="button" data-sort-field="e">ES (%) <span aria-hidden="true"></span></button></th>
+                    </tr>
+                  </thead>
+                  <tbody id="predictionRows">
+                    <tr>
+                      <td colspan="6" class="empty-state">Loading predictions...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-footer">
+                <span id="tableStatus">Showing 0 stocks</span>
+                <button id="showMoreButton" type="button">Show More</button>
+              </div>
+            </div>
+          </section>
+
+          <aside class="insight-rail" aria-label="Explorer insights">
+            <article class="mini-panel">
+              <h3>Industry Heatmap</h3>
+              <div class="industry-heatmap" id="industryHeatmap">
+                <p class="heatmap-empty">Loading industry risk...</p>
+              </div>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-block" id="drivers">
+        <div class="section-heading driver-heading">
+          <div>
+            <h2>Risk Drivers</h2>
+          </div>
+          <p>
+            Importance is computed by masking one characteristic group at a time and measuring the resulting
+            change in forecast loss across the ReSGA forecast archive.
+          </p>
+        </div>
+        <div class="driver-layout">
+          <article class="driver-panel driver-overall-panel">
+            <div class="driver-panel-head">
+              <div>
+                <span class="dataset-tag">Overall</span>
+                <h3>What matters most?</h3>
+              </div>
+              <div class="driver-tabs" id="driverSizeTabs" aria-label="Market-cap group"></div>
+            </div>
+            <div class="driver-bars" id="driverOverallBars">
+              <p class="chart-empty">Loading risk drivers...</p>
+            </div>
+          </article>
+          <article class="driver-panel">
+            <div class="driver-panel-head">
+              <div>
+                <span class="dataset-tag">Time variation</span>
+                <h3>Monthly driver map</h3>
+              </div>
+              <span class="driver-period" id="driverPeriod">-</span>
+            </div>
+            <div class="driver-heatmap" id="driverMonthlyHeatmap">
+              <p class="chart-empty">Loading monthly importance...</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="two-column-section" id="analogues">
+        <div class="section-heading">
+          <h2>Historical Analogues</h2>
+        </div>
+        <div class="analogue-overview" id="analoguePreview">
+          <div class="query-panel">
+            <span class="dataset-tag">Latest analogue snapshot</span>
+            <h3>Annual analogue bands</h3>
+            <p>
+              Current stock conditions are compared with similar historical states from the same calendar month
+              one to four years earlier, then summarized across similar stocks.
+            </p>
+            <p class="quiet-note">
+              The bands reflect the current model design: each point is an annual historical state, not a monthly
+              rolling scan.
+            </p>
+            <label class="search-box">
+              <span>Find a stock</span>
+              <input id="analogueSearchInput" type="search" placeholder="Ticker or company" autocomplete="off" />
+            </label>
+            <div class="quick-picks" id="analogueQuickPicks" aria-label="Popular stocks"></div>
+            <a class="button-link" id="analogueDetailLink" href="./stock.html">Open Stock Detail</a>
+          </div>
+          <div class="home-analogue-preview">
+            <p class="chart-empty">Loading historical analogue preview...</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block" id="networks">
+        <div class="section-heading">
+          <h2>Risk Network</h2>
+        </div>
+        <div class="network-grid">
+          <div class="network-overview">
+            <div class="network-summary" id="networkSummary">
+              <p class="chart-empty">Loading latent neighborhoods...</p>
+            </div>
+            <label class="search-box network-search-box">
+              <span>Search</span>
+              <input id="networkSearchInput" type="search" placeholder="Ticker or company" autocomplete="off" />
+            </label>
+          </div>
+          <div class="network-panels">
+            <div id="networkGroupList" class="network-group-list">
+              <p class="chart-empty">Loading neighborhoods...</p>
+            </div>
+            <button id="networkShowMore" type="button" hidden>Show More</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block" id="backtesting">
+        <div class="section-heading">
+          <p class="eyebrow">Backtesting</p>
+          <h2>Forecast Reliability and Live Monitoring</h2>
+        </div>
+        <div class="backtest-grid">
+          <article class="backtest-status">
+            <span class="dataset-tag">Forecast status</span>
+            <h3>Formal Backtests</h3>
+            <div class="status-timeline" id="backtestStatusRows">
+              <div>
+                <span>Latest evaluated</span>
+                <strong>Loading</strong>
+                <p>Most recent month with realized excess return and forecast data.</p>
+              </div>
+              <div>
+                <span>VaR CC test</span>
+                <strong>Pass / Fail / History</strong>
+                <p>Christoffersen conditional coverage test for VaR exceptions.</p>
+              </div>
+              <div>
+                <span>ES ASER test</span>
+                <strong>Pass / Fail / History</strong>
+                <p>ASER test for ES forecast reliability.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="backtest-monitor">
+            <span class="dataset-tag">Live monitor</span>
+            <h3>E-backtesting Alert</h3>
+            <div class="alert-meter" id="ebacktestMeter" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="traffic-row">
+              <span>Green</span>
+              <span>Yellow</span>
+              <span>Red</span>
+            </div>
+            <div class="monitor-stats" id="ebacktestStats">
+              <div><span>Green</span><strong>Loading</strong></div>
+              <div><span>Yellow</span><strong>-</strong></div>
+              <div><span>Red</span><strong>-</strong></div>
+            </div>
+            <p id="ebacktestNote">Sequential ES evidence monitor loading...</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="docs">
+        <div class="section-heading">
+          <p class="eyebrow">Documentation</p>
+          <h2>Project Reference</h2>
+        </div>
+        <div class="doc-grid">
+          <a href="./data.md" class="doc-link">Data Dictionary</a>
+          <a href="./raw_to_predictions.md" class="doc-link">Construction Methodology</a>
+          <a href="./reproducibility.md" class="doc-link">Reproducibility</a>
+          <a href="https://github.com/tailrisk-resga/tailrisk-resga.github.io" class="doc-link">GitHub Code</a>
+        </div>
+      </section>
+    </main>
+    <script src="./static/app.js?v=20260525-8"></script>
+  </body>
+</html>

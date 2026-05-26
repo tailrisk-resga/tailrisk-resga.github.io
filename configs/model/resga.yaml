@@ -1,0 +1,9 @@
+models:
+  - name: ReSGA
+    params:
+      batch_size: 1
+      num_layers: 1
+      hidden_dim: 16
+      K: 10
+      feature_dim: 153
+      sequence_length: 12

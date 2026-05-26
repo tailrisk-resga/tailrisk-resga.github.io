@@ -1,0 +1,15 @@
+{
+  "version": "prototype",
+  "last_updated": "2026-05-12",
+  "data_mode": "static",
+  "description": "Public prototype data for the Tail Risk Forecasting Portal. Replace these files with exported research outputs before public release.",
+  "modules": {
+    "predictions": "./data/predictions/dates.json",
+    "downloads": "./data/downloads/catalog.json",
+    "benchmark": "./data/benchmark/leaderboard.json",
+    "backtesting": "./data/backtesting/summary.json",
+    "analogues": "./data/analogues/examples.json",
+    "networks": "./data/networks/latest.json",
+    "factors": "./data/factors/catalog.json"
+  }
+}

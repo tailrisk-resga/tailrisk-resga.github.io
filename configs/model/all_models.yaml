@@ -1,0 +1,65 @@
+models:
+  - name: Linear
+    params:
+      batch_size: 51200
+      lambda_l1: 0.001
+  - name: NN
+    params:
+      batch_size: 51200
+      hidden_dim: 64
+  - name: LANN
+    params:
+      batch_size: 51200
+      hidden_dim: 64
+      feature_dim: 1836
+  - name: DLinear
+    params:
+      batch_size: 12800
+      hidden_dim: 16
+  - name: LSTM
+    params:
+      batch_size: 12800
+      num_layers: 1
+      hidden_dim: 4
+  - name: GRU
+    params:
+      batch_size: 12800
+      num_layers: 1
+      hidden_dim: 32
+  - name: Informer
+    params:
+      batch_size: 12800
+      d_model: 8
+      n_heads: 2
+      e_layers: 1
+      d_layers: 1
+      d_ff: 16
+      factor: 2
+  - name: EInformer
+    params:
+      batch_size: 12800
+      d_model: 16
+      n_heads: 2
+      e_layers: 1
+      d_ff: 16
+      factor: 2
+  - name: DInformer
+    params:
+      batch_size: 12800
+      d_model: 16
+      n_heads: 2
+      d_layers: 1
+      d_ff: 16
+      factor: 2
+  - name: SGA
+    params:
+      batch_size: 1
+      num_layers: 1
+      hidden_dim: 16
+      K: 10
+  - name: ReSGA
+    params:
+      batch_size: 1
+      num_layers: 1
+      hidden_dim: 16
+      K: 10

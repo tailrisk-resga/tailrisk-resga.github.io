@@ -1,0 +1,669 @@
+{
+  "generated_at": "2026-05-25T08:56:41.840365+00:00",
+  "model": "Retrieval",
+  "hyperparameter": "1_512_10",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "alpha": 0.05,
+  "normalize": "positive",
+  "latest_eom": "2023-11-30",
+  "latest_target_month": "2023-12-31",
+  "observations": {
+    "rows": 6929510,
+    "stocks": 7823,
+    "months": 119,
+    "groups": 13
+  },
+  "groups": [
+    {
+      "mask": "Accruals",
+      "display_name": "Accruals",
+      "feature_count": 0
+    },
+    {
+      "mask": "DebtIssuance",
+      "display_name": "Debt Issuance",
+      "feature_count": 0
+    },
+    {
+      "mask": "Investment",
+      "display_name": "Investment",
+      "feature_count": 0
+    },
+    {
+      "mask": "LowLeverage",
+      "display_name": "Low Leverage",
+      "feature_count": 0
+    },
+    {
+      "mask": "LowRisk",
+      "display_name": "Low Risk",
+      "feature_count": 0
+    },
+    {
+      "mask": "Momentum",
+      "display_name": "Momentum",
+      "feature_count": 0
+    },
+    {
+      "mask": "ProfitGrowth",
+      "display_name": "Profit Growth",
+      "feature_count": 0
+    },
+    {
+      "mask": "Profitability",
+      "display_name": "Profitability",
+      "feature_count": 0
+    },
+    {
+      "mask": "Quality",
+      "display_name": "Quality",
+      "feature_count": 0
+    },
+    {
+      "mask": "Seasonality",
+      "display_name": "Seasonality",
+      "feature_count": 0
+    },
+    {
+      "mask": "ShortTermReversal",
+      "display_name": "Short-Term Reversal",
+      "feature_count": 0
+    },
+    {
+      "mask": "Size",
+      "display_name": "Size",
+      "feature_count": 0
+    },
+    {
+      "mask": "Value",
+      "display_name": "Value",
+      "feature_count": 0
+    }
+  ],
+  "summary": {
+    "overall_top": [
+      {
+        "mask": "Value",
+        "display_name": "Value",
+        "importance": 0.4156784037534987,
+        "delta_abs": 0.11579974088931877,
+        "rank": 1.0
+      },
+      {
+        "mask": "LowRisk",
+        "display_name": "Low Risk",
+        "importance": 0.3069779937817653,
+        "delta_abs": 0.08551796729793937,
+        "rank": 2.0
+      },
+      {
+        "mask": "Momentum",
+        "display_name": "Momentum",
+        "importance": 0.10217634795525903,
+        "delta_abs": 0.028464299591691944,
+        "rank": 3.0
+      },
+      {
+        "mask": "Quality",
+        "display_name": "Quality",
+        "importance": 0.057822512919109684,
+        "delta_abs": 0.016108202767187496,
+        "rank": 4.0
+      },
+      {
+        "mask": "ShortTermReversal",
+        "display_name": "Short-Term Reversal",
+        "importance": 0.0444714885977082,
+        "delta_abs": 0.012388872768167136,
+        "rank": 5.0
+      },
+      {
+        "mask": "LowLeverage",
+        "display_name": "Low Leverage",
+        "importance": 0.03231607421989868,
+        "delta_abs": 0.00900261593441698,
+        "rank": 6.0
+      },
+      {
+        "mask": "ProfitGrowth",
+        "display_name": "Profit Growth",
+        "importance": 0.013337713940428984,
+        "delta_abs": 0.0037156219914504796,
+        "rank": 7.0
+      },
+      {
+        "mask": "Size",
+        "display_name": "Size",
+        "importance": 0.009365593991727265,
+        "delta_abs": 0.002609068327157349,
+        "rank": 8.0
+      },
+      {
+        "mask": "Investment",
+        "display_name": "Investment",
+        "importance": 0.0068209010368966315,
+        "delta_abs": 0.0019001674505387811,
+        "rank": 9.0
+      },
+      {
+        "mask": "Accruals",
+        "display_name": "Accruals",
+        "importance": 0.005787252819712022,
+        "delta_abs": 0.001612213602949275,
+        "rank": 10.0
+      }
+    ],
+    "by_size_top": {
+      "ALL": [
+        {
+          "mask": "Value",
+          "display_name": "Value",
+          "importance": 0.4156784037534987,
+          "delta_abs": 0.11579974088931877,
+          "rank": 1.0
+        },
+        {
+          "mask": "LowRisk",
+          "display_name": "Low Risk",
+          "importance": 0.3069779937817653,
+          "delta_abs": 0.08551796729793937,
+          "rank": 2.0
+        },
+        {
+          "mask": "Momentum",
+          "display_name": "Momentum",
+          "importance": 0.10217634795525903,
+          "delta_abs": 0.028464299591691944,
+          "rank": 3.0
+        },
+        {
+          "mask": "Quality",
+          "display_name": "Quality",
+          "importance": 0.057822512919109684,
+          "delta_abs": 0.016108202767187496,
+          "rank": 4.0
+        },
+        {
+          "mask": "ShortTermReversal",
+          "display_name": "Short-Term Reversal",
+          "importance": 0.0444714885977082,
+          "delta_abs": 0.012388872768167136,
+          "rank": 5.0
+        },
+        {
+          "mask": "LowLeverage",
+          "display_name": "Low Leverage",
+          "importance": 0.03231607421989868,
+          "delta_abs": 0.00900261593441698,
+          "rank": 6.0
+        },
+        {
+          "mask": "ProfitGrowth",
+          "display_name": "Profit Growth",
+          "importance": 0.013337713940428984,
+          "delta_abs": 0.0037156219914504796,
+          "rank": 7.0
+        },
+        {
+          "mask": "Size",
+          "display_name": "Size",
+          "importance": 0.009365593991727265,
+          "delta_abs": 0.002609068327157349,
+          "rank": 8.0
+        },
+        {
+          "mask": "Investment",
+          "display_name": "Investment",
+          "importance": 0.0068209010368966315,
+          "delta_abs": 0.0019001674505387811,
+          "rank": 9.0
+        },
+        {
+          "mask": "Accruals",
+          "display_name": "Accruals",
+          "importance": 0.005787252819712022,
+          "delta_abs": 0.001612213602949275,
+          "rank": 10.0
+        }
+      ],
+      "mega": [
+        {
+          "mask": "LowRisk",
+          "display_name": "Low Risk",
+          "importance": 0.5741298867966086,
+          "delta_abs": 0.09705968325736958,
+          "rank": 1.0
+        },
+        {
+          "mask": "Quality",
+          "display_name": "Quality",
+          "importance": 0.1783316563058021,
+          "delta_abs": 0.030147906377734124,
+          "rank": 2.0
+        },
+        {
+          "mask": "LowLeverage",
+          "display_name": "Low Leverage",
+          "importance": 0.11596648576776379,
+          "delta_abs": 0.019604745608857055,
+          "rank": 3.0
+        },
+        {
+          "mask": "Momentum",
+          "display_name": "Momentum",
+          "importance": 0.10331144106025242,
+          "delta_abs": 0.017465343603899175,
+          "rank": 4.0
+        },
+        {
+          "mask": "ProfitGrowth",
+          "display_name": "Profit Growth",
+          "importance": 0.027456508349823848,
+          "delta_abs": 0.0046416674433311655,
+          "rank": 5.0
+        },
+        {
+          "mask": "Seasonality",
+          "display_name": "Seasonality",
+          "importance": 0.000804021719749169,
+          "delta_abs": 0.0001359241092400154,
+          "rank": 6.0
+        },
+        {
+          "mask": "Accruals",
+          "display_name": "Accruals",
+          "importance": 0.0,
+          "delta_abs": -0.007540203328708195,
+          "rank": 7.0
+        },
+        {
+          "mask": "DebtIssuance",
+          "display_name": "Debt Issuance",
+          "importance": 0.0,
+          "delta_abs": -0.002559940670230798,
+          "rank": 8.0
+        },
+        {
+          "mask": "Investment",
+          "display_name": "Investment",
+          "importance": 0.0,
+          "delta_abs": -0.012837379236823931,
+          "rank": 9.0
+        },
+        {
+          "mask": "Profitability",
+          "display_name": "Profitability",
+          "importance": 0.0,
+          "delta_abs": -0.02174136808818794,
+          "rank": 10.0
+        }
+      ],
+      "large": [
+        {
+          "mask": "LowRisk",
+          "display_name": "Low Risk",
+          "importance": 0.5421652092618031,
+          "delta_abs": 0.056833821040514376,
+          "rank": 1.0
+        },
+        {
+          "mask": "Quality",
+          "display_name": "Quality",
+          "importance": 0.17831680308909567,
+          "delta_abs": 0.018692503875490374,
+          "rank": 2.0
+        },
+        {
+          "mask": "LowLeverage",
+          "display_name": "Low Leverage",
+          "importance": 0.1330854009664172,
+          "delta_abs": 0.013951009272485493,
+          "rank": 3.0
+        },
+        {
+          "mask": "Momentum",
+          "display_name": "Momentum",
+          "importance": 0.0909050229604632,
+          "delta_abs": 0.009529345886382767,
+          "rank": 4.0
+        },
+        {
+          "mask": "ProfitGrowth",
+          "display_name": "Profit Growth",
+          "importance": 0.05552756372222082,
+          "delta_abs": 0.005820815436869076,
+          "rank": 5.0
+        },
+        {
+          "mask": "Accruals",
+          "display_name": "Accruals",
+          "importance": 0.0,
+          "delta_abs": -0.001911676734810186,
+          "rank": 6.0
+        },
+        {
+          "mask": "DebtIssuance",
+          "display_name": "Debt Issuance",
+          "importance": 0.0,
+          "delta_abs": -3.7518739020026004e-05,
+          "rank": 7.0
+        },
+        {
+          "mask": "Investment",
+          "display_name": "Investment",
+          "importance": 0.0,
+          "delta_abs": -0.0068251746466092555,
+          "rank": 8.0
+        },
+        {
+          "mask": "Profitability",
+          "display_name": "Profitability",
+          "importance": 0.0,
+          "delta_abs": -0.011775875167708616,
+          "rank": 9.0
+        },
+        {
+          "mask": "Seasonality",
+          "display_name": "Seasonality",
+          "importance": 0.0,
+          "delta_abs": -0.0029825784465042915,
+          "rank": 10.0
+        }
+      ],
+      "small": [
+        {
+          "mask": "LowRisk",
+          "display_name": "Low Risk",
+          "importance": 0.3728776766127926,
+          "delta_abs": 0.07530185196418016,
+          "rank": 1.0
+        },
+        {
+          "mask": "Value",
+          "display_name": "Value",
+          "importance": 0.3615610465998451,
+          "delta_abs": 0.07301648265564609,
+          "rank": 2.0
+        },
+        {
+          "mask": "Momentum",
+          "display_name": "Momentum",
+          "importance": 0.06584700240249476,
+          "delta_abs": 0.013297661775410141,
+          "rank": 3.0
+        },
+        {
+          "mask": "Quality",
+          "display_name": "Quality",
+          "importance": 0.06086611437980732,
+          "delta_abs": 0.012291782056512268,
+          "rank": 4.0
+        },
+        {
+          "mask": "ShortTermReversal",
+          "display_name": "Short-Term Reversal",
+          "importance": 0.05078672142106831,
+          "delta_abs": 0.010256270133775391,
+          "rank": 5.0
+        },
+        {
+          "mask": "LowLeverage",
+          "display_name": "Low Leverage",
+          "importance": 0.02889375777817182,
+          "delta_abs": 0.005835032793234607,
+          "rank": 6.0
+        },
+        {
+          "mask": "Investment",
+          "display_name": "Investment",
+          "importance": 0.021605101173852732,
+          "delta_abs": 0.004363104128526363,
+          "rank": 7.0
+        },
+        {
+          "mask": "Accruals",
+          "display_name": "Accruals",
+          "importance": 0.018968632282601577,
+          "delta_abs": 0.003830674855847427,
+          "rank": 8.0
+        },
+        {
+          "mask": "ProfitGrowth",
+          "display_name": "Profit Growth",
+          "importance": 0.012966593612748066,
+          "delta_abs": 0.0026185759404437903,
+          "rank": 9.0
+        },
+        {
+          "mask": "DebtIssuance",
+          "display_name": "Debt Issuance",
+          "importance": 0.005627353736617712,
+          "delta_abs": 0.001136432091816797,
+          "rank": 10.0
+        }
+      ],
+      "micro": [
+        {
+          "mask": "Value",
+          "display_name": "Value",
+          "importance": 0.47371368632643357,
+          "delta_abs": 0.18281321466599776,
+          "rank": 1.0
+        },
+        {
+          "mask": "LowRisk",
+          "display_name": "Low Risk",
+          "importance": 0.2432512497254747,
+          "delta_abs": 0.09387430470647562,
+          "rank": 2.0
+        },
+        {
+          "mask": "Momentum",
+          "display_name": "Momentum",
+          "importance": 0.08608576195029648,
+          "delta_abs": 0.03322178635189532,
+          "rank": 3.0
+        },
+        {
+          "mask": "ShortTermReversal",
+          "display_name": "Short-Term Reversal",
+          "importance": 0.05575489379522286,
+          "delta_abs": 0.021516649533833032,
+          "rank": 4.0
+        },
+        {
+          "mask": "Quality",
+          "display_name": "Quality",
+          "importance": 0.03416356500713367,
+          "delta_abs": 0.01318423200274843,
+          "rank": 5.0
+        },
+        {
+          "mask": "Investment",
+          "display_name": "Investment",
+          "importance": 0.02144703717552937,
+          "delta_abs": 0.008276733234213296,
+          "rank": 6.0
+        },
+        {
+          "mask": "LowLeverage",
+          "display_name": "Low Leverage",
+          "importance": 0.015585122528409621,
+          "delta_abs": 0.006014532475252743,
+          "rank": 7.0
+        },
+        {
+          "mask": "Profitability",
+          "display_name": "Profitability",
+          "importance": 0.015460474509100907,
+          "delta_abs": 0.005966428935563428,
+          "rank": 8.0
+        },
+        {
+          "mask": "Size",
+          "display_name": "Size",
+          "importance": 0.015310063267140569,
+          "delta_abs": 0.005908382981945515,
+          "rank": 9.0
+        },
+        {
+          "mask": "Accruals",
+          "display_name": "Accruals",
+          "importance": 0.013532461002910091,
+          "delta_abs": 0.005222379613873951,
+          "rank": 10.0
+        }
+      ],
+      "nano": [
+        {
+          "mask": "Value",
+          "display_name": "Value",
+          "importance": 0.5475130857842281,
+          "delta_abs": 0.3284095386026049,
+          "rank": 1.0
+        },
+        {
+          "mask": "LowRisk",
+          "display_name": "Low Risk",
+          "importance": 0.1894800607714859,
+          "delta_abs": 0.11365401293236044,
+          "rank": 2.0
+        },
+        {
+          "mask": "Momentum",
+          "display_name": "Momentum",
+          "importance": 0.13366674579683324,
+          "delta_abs": 0.08017604593098149,
+          "rank": 3.0
+        },
+        {
+          "mask": "ShortTermReversal",
+          "display_name": "Short-Term Reversal",
+          "importance": 0.041365441279779494,
+          "delta_abs": 0.02481183708208068,
+          "rank": 4.0
+        },
+        {
+          "mask": "Size",
+          "display_name": "Size",
+          "importance": 0.029682692307503054,
+          "delta_abs": 0.017804285483382642,
+          "rank": 5.0
+        },
+        {
+          "mask": "Quality",
+          "display_name": "Quality",
+          "importance": 0.027422900555641137,
+          "delta_abs": 0.0164488162063261,
+          "rank": 6.0
+        },
+        {
+          "mask": "LowLeverage",
+          "display_name": "Low Leverage",
+          "importance": 0.012898473022437953,
+          "delta_abs": 0.00773676773023535,
+          "rank": 7.0
+        },
+        {
+          "mask": "Investment",
+          "display_name": "Investment",
+          "importance": 0.006866907975255331,
+          "delta_abs": 0.004118911745369491,
+          "rank": 8.0
+        },
+        {
+          "mask": "Seasonality",
+          "display_name": "Seasonality",
+          "importance": 0.005872414921894771,
+          "delta_abs": 0.0035223944871018986,
+          "rank": 9.0
+        },
+        {
+          "mask": "Profitability",
+          "display_name": "Profitability",
+          "importance": 0.003046429898979061,
+          "delta_abs": 0.0018273109145434674,
+          "rank": 10.0
+        }
+      ]
+    },
+    "latest_month_top": [
+      {
+        "mask": "ShortTermReversal",
+        "display_name": "Short-Term Reversal",
+        "importance": 0.5157950669961849,
+        "delta_abs": 0.01684127896443588,
+        "rank": 1.0
+      },
+      {
+        "mask": "LowLeverage",
+        "display_name": "Low Leverage",
+        "importance": 0.30065257051978334,
+        "delta_abs": 0.009816638691381385,
+        "rank": 2.0
+      },
+      {
+        "mask": "Value",
+        "display_name": "Value",
+        "importance": 0.1653290966482408,
+        "delta_abs": 0.00539817771776363,
+        "rank": 3.0
+      },
+      {
+        "mask": "ProfitGrowth",
+        "display_name": "Profit Growth",
+        "importance": 0.01822326583579095,
+        "delta_abs": 0.0005950097688427469,
+        "rank": 4.0
+      },
+      {
+        "mask": "Accruals",
+        "display_name": "Accruals",
+        "importance": 0.0,
+        "delta_abs": -0.014277432147128177,
+        "rank": 5.0
+      },
+      {
+        "mask": "DebtIssuance",
+        "display_name": "Debt Issuance",
+        "importance": 0.0,
+        "delta_abs": -0.0037866238043617884,
+        "rank": 6.0
+      },
+      {
+        "mask": "Investment",
+        "display_name": "Investment",
+        "importance": 0.0,
+        "delta_abs": -0.030569548294411053,
+        "rank": 7.0
+      },
+      {
+        "mask": "LowRisk",
+        "display_name": "Low Risk",
+        "importance": 0.0,
+        "delta_abs": -0.013835956798911031,
+        "rank": 8.0
+      },
+      {
+        "mask": "Momentum",
+        "display_name": "Momentum",
+        "importance": 0.0,
+        "delta_abs": -0.041210248357581136,
+        "rank": 9.0
+      },
+      {
+        "mask": "Profitability",
+        "display_name": "Profitability",
+        "importance": 0.0,
+        "delta_abs": -0.055784585846450074,
+        "rank": 10.0
+      }
+    ]
+  }
+}

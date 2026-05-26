@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stock Detail | Tail Risk Forecasting Benchmark</title>
+    <link rel="stylesheet" href="./static/styles.css?v=20260525-7" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="site-header detail-header">
+        <div class="brand-block">
+          <p class="eyebrow">Stock detail</p>
+          <h1 id="stockTitle">Loading stock...</h1>
+          <p class="lede" id="stockSubtitle">
+            Realized excess return, predicted VaR/ES, and similar historical states.
+          </p>
+        </div>
+        <a class="text-button" href="./index.html#explorer">Back to Forecasts</a>
+      </header>
+
+      <section class="detail-summary-grid" aria-label="Stock summary">
+        <div>
+          <span class="metric-label">Observations</span>
+          <strong id="detailObs">-</strong>
+        </div>
+        <div>
+          <span class="metric-label">Latest date</span>
+          <strong id="detailDate">-</strong>
+        </div>
+        <div>
+          <span class="metric-label">Industry</span>
+          <strong id="detailIndustry">-</strong>
+        </div>
+        <div>
+          <span class="metric-label">Latest VaR (%)</span>
+          <strong id="detailVar">-</strong>
+        </div>
+        <div>
+          <span class="metric-label">Latest ES (%)</span>
+          <strong id="detailEs">-</strong>
+        </div>
+      </section>
+
+      <section class="detail-layout">
+        <div class="detail-main">
+          <section class="section-block">
+            <div class="section-heading">
+              <p class="eyebrow">Performance history</p>
+              <h2>Cumulative Return</h2>
+            </div>
+            <div id="performanceChart" class="large-chart-panel">
+              <p class="chart-empty">Loading performance history...</p>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <p class="eyebrow">Tail risk history</p>
+              <h2>Excess Return with Predicted VaR and ES</h2>
+            </div>
+            <div id="returnRiskChart" class="large-chart-panel">
+              <p class="chart-empty">Loading return and risk history...</p>
+            </div>
+            <div class="chart-legend" aria-label="Chart legend">
+              <span><i class="legend-return"></i> Excess return</span>
+              <span><i class="legend-var"></i> VaR</span>
+              <span><i class="legend-es"></i> ES</span>
+              <span><i class="legend-breach"></i> VaR breach</span>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <div class="section-heading split-heading">
+              <div>
+                <p class="eyebrow">Historical states</p>
+                <h2>Historical Analogues</h2>
+              </div>
+              <span id="analoguePeriod" class="panel-period">-</span>
+            </div>
+            <div id="analogueList" class="analogue-visual-stack">
+              <p class="chart-empty">Loading historical analogues...</p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="detail-rail">
+          <article class="mini-panel">
+            <h3>Backtest Snapshot</h3>
+            <ul class="check-list" id="stockBacktestList">
+              <li>VaR breach count: pending</li>
+              <li>Average excess return: pending</li>
+              <li>Average VaR / ES: pending</li>
+            </ul>
+          </article>
+
+          <article class="mini-panel">
+            <div class="panel-heading-row">
+              <h3>Related Stocks</h3>
+              <span id="relatedPeriod" class="panel-period">-</span>
+            </div>
+            <div class="rail-select-grid">
+              <label class="rail-select">
+                Year
+                <select id="relatedYearSelect" disabled>
+                  <option>Loading</option>
+                </select>
+              </label>
+              <label class="rail-select">
+                Month
+                <select id="relatedMonthSelect" disabled>
+                  <option>Loading</option>
+                </select>
+              </label>
+            </div>
+            <ul class="related-list" id="relatedStocksList">
+              <li class="related-empty">Loading related stocks...</li>
+            </ul>
+          </article>
+
+          <article class="mini-panel">
+            <h3>Latent Risk Group</h3>
+            <div id="stockNetworkPanel" class="stock-network-card">
+              <p>Checking network availability...</p>
+            </div>
+          </article>
+
+          <article class="mini-panel">
+            <h3>Data Notes</h3>
+            <p>
+              Dates show the month being forecast. Forecasts are formed at the prior month-end, and realized
+              excess return is observed over the displayed month.
+            </p>
+            <p>
+              Historical analogue bands use same-calendar-month annual states, so the four columns correspond to
+              one to four years before the forecast month.
+            </p>
+          </article>
+        </aside>
+      </section>
+    </main>
+    <script src="./static/stock.js?v=20260525-2"></script>
+  </body>
+</html>

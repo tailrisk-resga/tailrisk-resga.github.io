@@ -1,0 +1,47 @@
+seeds:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+
+runtime:
+  device: auto
+  gpu_id: 0
+  deterministic: false
+
+training:
+  epochs: 10000
+  patience: 5
+  batch_size: 25600
+  num_workers: 8
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  lambda_l1: 0.0
+  train_frac: 1.0
+  alpha: 0.05
+  clip_value: 10.0
+  feature_dim: 153
+  hidden_dim: 32
+  num_layers: 3
+  sequence_length: 12
+  dropout: 0.1
+  K: 10
+  beta: 0.5
+  d_model: 256
+  n_heads: 8
+  e_layers: 2
+  d_layers: 1
+  d_ff: 1024
+  factor: 5
+  embed: fixed
+  freq: b
+  activation: gelu
+  output_attention: false
+  distil: false
+  c_out: 2
+  start_time: "1926-01-01"
+  valid_time: "1996-01-01"
+  test_time: "2014-01-01"
+  end_time: "2015-01-01"
+  rolling_steps: 10

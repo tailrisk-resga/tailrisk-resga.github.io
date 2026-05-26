@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Risk Network | Tail Risk Forecasting Portal</title>
+    <link rel="stylesheet" href="./static/styles.css?v=20260525-7" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="site-header detail-header">
+        <div class="brand-block">
+          <p class="eyebrow">Risk network</p>
+          <h1 id="networkTitle">Loading network...</h1>
+          <p class="lede" id="networkSubtitle">Connected stocks, edge strength, and group-level tail-risk profile.</p>
+        </div>
+        <a class="text-button" href="./index.html#networks">Back to Dashboard</a>
+      </header>
+
+      <section class="detail-summary-grid" aria-label="Network summary">
+        <div>
+          <span class="metric-label">Date</span>
+          <strong id="networkDate">-</strong>
+        </div>
+        <div>
+          <span class="metric-label">Stocks</span>
+          <strong id="networkSize">-</strong>
+        </div>
+        <div>
+          <span class="metric-label">Industry</span>
+          <strong id="networkIndustry">-</strong>
+        </div>
+        <div>
+          <span class="metric-label">Average VaR (%)</span>
+          <strong id="networkVar">-</strong>
+        </div>
+        <div>
+          <span class="metric-label">Average ES (%)</span>
+          <strong id="networkEs">-</strong>
+        </div>
+      </section>
+
+      <section class="network-detail-layout">
+        <div class="network-detail-main">
+          <section class="section-block">
+            <div class="section-heading">
+              <p class="eyebrow">Connected view</p>
+              <h2>Latent Risk Neighborhood</h2>
+            </div>
+            <div id="networkGraph" class="network-detail-graph">
+              <p class="chart-empty">Loading network graph...</p>
+            </div>
+          </section>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <p class="eyebrow">Constituents</p>
+              <h2>Top Connected Stocks</h2>
+            </div>
+            <div id="networkMembers" class="network-member-table">
+              <p class="chart-empty">Loading connected stocks...</p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="network-detail-rail">
+          <article class="network-tooltip" id="networkTooltip">
+            <span>Selected stock</span>
+            <strong>Network details</strong>
+            <p>Click a stock in the graph to inspect its company profile, forecasts, and available network actions.</p>
+          </article>
+        </aside>
+      </section>
+    </main>
+    <script src="./static/network.js?v=20260519-8"></script>
+  </body>
+</html>

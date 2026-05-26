@@ -1,0 +1,18 @@
+countries:
+  - USA
+
+data:
+  steps:
+    - clean
+    - pointwise
+    - temporal
+    - cross_sectional
+    - resga
+  raw_subdir: raw/developed
+  processed_subdir: processed
+  sample_subdir: samples
+  sequence_length: 12
+  n_jobs: -1
+  sample_start:
+  sample_end:
+  resga_start:
