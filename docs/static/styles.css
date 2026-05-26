@@ -1996,17 +1996,44 @@ tbody tr.is-selected {
 
 .status-timeline {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
-.status-timeline div {
-  padding: 12px;
+.status-tile {
+  position: relative;
+  min-height: 118px;
+  overflow: hidden;
+  padding: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--panel-soft);
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(255, 255, 255, 0) 58%),
+    var(--panel-soft);
 }
 
-.status-timeline span {
+.status-tile::after {
+  content: "";
+  position: absolute;
+  right: -26px;
+  bottom: -34px;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  background: rgba(15, 118, 110, 0.08);
+}
+
+.status-test {
+  background:
+    linear-gradient(135deg, rgba(48, 102, 190, 0.08), rgba(255, 255, 255, 0) 58%),
+    var(--panel-soft);
+}
+
+.status-test::after {
+  background: rgba(48, 102, 190, 0.08);
+}
+
+.status-tile > span {
   display: block;
   margin-bottom: 6px;
   color: var(--muted);
@@ -2017,7 +2044,16 @@ tbody tr.is-selected {
 
 .status-timeline strong {
   display: block;
-  margin-bottom: 6px;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.status-test strong {
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 800;
 }
 
 .status-timeline p,
@@ -2026,6 +2062,66 @@ tbody tr.is-selected {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.5;
+}
+
+.status-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.status-chip.pass {
+  color: #065f46;
+  background: rgba(16, 185, 129, 0.14);
+}
+
+.status-chip.fail {
+  color: #991b1b;
+  background: rgba(239, 68, 68, 0.13);
+}
+
+.status-chip.history,
+.status-chip.na {
+  color: #475467;
+  background: rgba(102, 112, 133, 0.13);
+}
+
+.status-share-bar {
+  display: flex;
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(102, 112, 133, 0.12);
+}
+
+.status-share-bar i {
+  display: block;
+  min-width: 2px;
+}
+
+.status-share-bar .pass {
+  background: #12b76a;
+}
+
+.status-share-bar .fail {
+  background: #f04438;
+}
+
+.status-share-bar .history,
+.status-share-bar .na {
+  background: #98a2b3;
 }
 
 .alert-meter {
@@ -2680,6 +2776,7 @@ tbody tr.is-selected {
   .driver-layout,
   .doc-grid,
   .overview-band,
+  .status-timeline,
   .detail-summary-grid,
   .analogue-list,
   .analogue-card-grid,

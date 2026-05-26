@@ -803,47 +803,61 @@ function renderBacktestStatus(summary) {
     {
       label: "Latest evaluated",
       value: summary.latest_evaluated,
-      text: "Most recent month with realized excess return and forecast data.",
+      kind: "metric",
     },
     {
       label: "Stocks evaluated",
       value: Number(summary.stocks_evaluated ?? 0).toLocaleString(),
-      text: "Each stock is tested with all available realized forecast history.",
+      kind: "metric",
     },
     {
       label: "VaR CC test",
-      value: formatStatusCounts(summary.var_cc),
-      text: "Christoffersen conditional coverage test for VaR exceptions.",
+      value: renderStatusBreakdown(summary.var_cc),
+      kind: "test",
     },
     {
       label: "ES ASER test",
-      value: formatStatusCounts(summary.es_aser),
-      text: `Formal ASER test requires at least ${summary.aser_min_observations ?? 77} monthly observations.`,
+      value: renderStatusBreakdown(summary.es_aser),
+      kind: "test",
     },
   ];
   elements.backtestStatusRows.innerHTML = rows
     .map(
       (row) => `
-        <div>
+        <div class="status-tile ${row.kind === "test" ? "status-test" : "status-metric"}">
           <span>${row.label}</span>
           <strong>${row.value ?? "-"}</strong>
-          <p>${row.text}</p>
         </div>
       `,
     )
     .join("");
 }
 
-function formatStatusCounts(counts) {
+function renderStatusBreakdown(counts) {
   if (!counts) return "-";
   const pass = counts.pass ?? 0;
   const fail = counts.fail ?? 0;
   const notTestable = counts.not_testable ?? 0;
   const unavailable = counts.unavailable ?? 0;
-  const parts = [`Pass ${pass.toLocaleString()}`, `Fail ${fail.toLocaleString()}`];
-  if (notTestable) parts.push(`Not enough history ${notTestable.toLocaleString()}`);
-  if (unavailable) parts.push(`N.A. ${unavailable.toLocaleString()}`);
-  return parts.join(" · ");
+  const total = Math.max(pass + fail + notTestable + unavailable, 1);
+  const segments = [
+    ["pass", pass, "Pass"],
+    ["fail", fail, "Fail"],
+    ["history", notTestable, "History"],
+    ["na", unavailable, "N.A."],
+  ].filter(([, value]) => value > 0);
+  return `
+    <span class="status-chip-row">
+      ${segments
+        .map(([type, value, label]) => `<em class="status-chip ${type}">${label} ${Number(value).toLocaleString()}</em>`)
+        .join("")}
+    </span>
+    <span class="status-share-bar" aria-hidden="true">
+      ${segments
+        .map(([type, value]) => `<i class="${type}" style="width:${((Number(value) / total) * 100).toFixed(2)}%"></i>`)
+        .join("")}
+    </span>
+  `;
 }
 
 function renderEBacktesting(summary) {
