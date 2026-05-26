@@ -2094,7 +2094,7 @@ tbody tr.is-selected {
   background: rgba(239, 68, 68, 0.13);
 }
 
-.status-chip.history,
+.status-chip.insufficient,
 .status-chip.na {
   color: #475467;
   background: rgba(102, 112, 133, 0.13);
@@ -2121,15 +2121,33 @@ tbody tr.is-selected {
   background: #f04438;
 }
 
-.status-share-bar .history,
+.status-share-bar .insufficient,
 .status-share-bar .na {
   background: #98a2b3;
 }
 
 .alert-meter {
+  display: flex;
   height: 18px;
+  overflow: hidden;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent) 0 46%, #f79009 46% 72%, var(--risk) 72% 100%);
+  background: rgba(102, 112, 133, 0.12);
+}
+
+.alert-meter span {
+  min-width: 2px;
+}
+
+.alert-meter .green {
+  background: var(--accent);
+}
+
+.alert-meter .yellow {
+  background: #f79009;
+}
+
+.alert-meter .red {
+  background: var(--risk);
 }
 
 .traffic-row {

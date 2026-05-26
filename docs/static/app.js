@@ -843,7 +843,7 @@ function renderStatusBreakdown(counts) {
   const segments = [
     ["pass", pass, "Pass"],
     ["fail", fail, "Fail"],
-    ["history", notTestable, "History"],
+    ["insufficient", notTestable, "Insufficient data"],
     ["na", unavailable, "N.A."],
   ].filter(([, value]) => value > 0);
   return `
@@ -866,6 +866,18 @@ function renderEBacktesting(summary) {
   const green = counts.green ?? 0;
   const yellow = counts.yellow ?? 0;
   const red = counts.red ?? 0;
+  const total = Math.max(green + yellow + red, 1);
+
+  if (elements.ebacktestMeter) {
+    elements.ebacktestMeter.innerHTML = [
+      ["green", green],
+      ["yellow", yellow],
+      ["red", red],
+    ]
+      .filter(([, value]) => value > 0)
+      .map(([type, value]) => `<span class="${type}" style="width:${((Number(value) / total) * 100).toFixed(2)}%"></span>`)
+      .join("");
+  }
 
   elements.ebacktestStats.innerHTML = [
     ["Green", green],
