@@ -2190,6 +2190,30 @@ tbody tr.is-selected {
   line-height: 1;
 }
 
+.alert-thresholds {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.alert-thresholds span {
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid rgba(102, 112, 133, 0.16);
+  border-radius: 8px;
+  background: rgba(248, 250, 251, 0.78);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.alert-thresholds b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ink);
+}
+
 .check-list {
   display: grid;
   gap: 9px;

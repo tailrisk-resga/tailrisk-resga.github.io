@@ -259,7 +259,6 @@
           </article>
 
           <article class="backtest-monitor">
-            <span class="dataset-tag">Live monitor</span>
             <h3>E-backtesting Alert</h3>
             <div class="alert-meter" id="ebacktestMeter" aria-hidden="true">
               <span></span>
@@ -273,6 +272,11 @@
               <div><span>Green</span><strong>Loading</strong></div>
               <div><span>Yellow</span><strong>-</strong></div>
               <div><span>Red</span><strong>-</strong></div>
+            </div>
+            <div class="alert-thresholds" aria-label="E-backtesting alert thresholds">
+              <span><b>Green</b> e-process &lt; 2</span>
+              <span><b>Yellow</b> 2-20</span>
+              <span><b>Red</b> >= 20</span>
             </div>
             <p id="ebacktestNote">Sequential ES evidence monitor loading...</p>
           </article>
@@ -292,6 +296,6 @@
         </div>
       </section>
     </main>
-    <script src="./static/app.js?v=20260526-1"></script>
+    <script src="./static/app.js?v=20260526-2"></script>
   </body>
 </html>

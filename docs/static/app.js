@@ -894,8 +894,7 @@ function renderEBacktesting(summary) {
 
   if (elements.ebacktestNote) {
     const latest = summary.latest_evaluated || "-";
-    elements.ebacktestNote.textContent =
-      `Updated through ${latest}. Green means no material sequential warning; red crosses the formal 5% e-test threshold.`;
+    elements.ebacktestNote.textContent = `Updated through ${latest}.`;
   }
 }
 
