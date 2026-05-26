@@ -789,6 +789,7 @@ function renderNetworkGroupCard(group, index) {
       <p>${group.dominantIndustry}</p>
       <div class="network-card-metrics">
         <span>${Number(group.size || 0).toLocaleString()} linked stocks</span>
+        <span>${formatPercent(group.avg_var)}% avg VaR</span>
         <span>${formatPercent(group.avg_es)}% avg ES</span>
       </div>
       <div class="network-member-pills">${members}</div>
