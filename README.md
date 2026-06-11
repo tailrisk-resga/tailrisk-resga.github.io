@@ -1,5 +1,7 @@
 # Expected Shortfall Prediction
 
+This repository is the official implementation of "[ReSGA: A Large Tail Risk Model for Learning Value-at-Risk and Expected Shortfall](https://arxiv.org/abs/2606.04576)".
+
 This repository contains research code for expected shortfall prediction. The
 public reproduction path starts from model prediction CSV files, so readers can
 reproduce evaluation tables and backtests without re-training the neural models
